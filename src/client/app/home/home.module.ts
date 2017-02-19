@@ -8,7 +8,6 @@ import { NameListService } from '../shared/name-list/name-list.service';
 @NgModule({
   imports: [CommonModule, HomeRoutingModule, SharedModule],
   declarations: [HomeComponent],
-  exports: [HomeComponent],
-  providers: [NameListService]
+  exports: [HomeComponent]
 })
 export class HomeModule { }

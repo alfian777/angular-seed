@@ -1,7 +1,7 @@
 import { join } from 'path';
 
 import { SeedConfig } from './seed.config';
-// import { ExtendPackages } from './seed.config.interfaces';
+import { ExtendPackages } from './seed.config.interfaces';
 
 /**
  * This class extends the basic seed configuration, allowing for project specific overrides. A few examples can be found
@@ -13,8 +13,8 @@ export class ProjectConfig extends SeedConfig {
 
   constructor() {
     super();
-    // this.APP_TITLE = 'Put name of your app here';
-    // this.GOOGLE_ANALYTICS_ID = 'Your site's ID';
+    this.APP_TITLE = 'Asahi Kasei Taiwan Demo';
+    this.GOOGLE_ANALYTICS_ID = 'UA-22565745-2';
 
     /* Enable typeless compiler runs (faster) between typed compiler runs. */
     // this.TYPED_COMPILE_INTERVAL = 5;
@@ -22,6 +22,11 @@ export class ProjectConfig extends SeedConfig {
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
+      //{src: '@angular/material/core/theming/prebuilt/indigo-pink.css', inject: true},
+      {src: 'jquery/dist/jquery.slim.min.js', inject: 'libs'},
+      {src: 'tether/dist/js/tether.min.js', inject: 'libs'},
+      {src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs'},
+      {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true}
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
@@ -33,13 +38,32 @@ export class ProjectConfig extends SeedConfig {
     ];
 
     // Add packages (e.g. ng2-translate)
-    // let additionalPackages: ExtendPackages[] = [{
-    //   name: 'ng2-translate',
-    //   // Path to the package's bundle
-    //   path: 'node_modules/ng2-translate/bundles/ng2-translate.umd.js'
-    // }];
+
+    this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join('node_modules', '@ng-bootstrap', '*', 'package.json'));
+
+    let additionalPackages : ExtendPackages[] = 
+    [
+      /*
+      {
+        name:'@angular/material',
+        path:'node_modules/@angular/material/bundles/material.umd.js',
+        packageMeta:{
+          main: 'index.js',
+          defaultExtension: 'js'
+        }
+      },
+      */
+      {
+        name:'@ng-bootstrap/ng-bootstrap',
+        path:'node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
+        packageMeta:{
+          main: 'index.js',
+          defaultExtension: 'js'
+        }
+      },
+     ];
     //
-    // this.addPackagesBundles(additionalPackages);
+    this.addPackagesBundles(additionalPackages);
 
     /* Add proxy middlewar */
     // this.PROXY_MIDDLEWARE = [
