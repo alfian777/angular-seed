@@ -420,6 +420,7 @@ export class SeedConfig {
     packageConfigPaths: [
       join('node_modules', '*', 'package.json'),
       join('node_modules', '@angular', '*', 'package.json')
+      
     ],
     paths: {
       // Note that for multiple apps this configuration need to be updated

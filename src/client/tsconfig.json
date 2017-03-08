@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
+    "moduleResolution": "node",
     "declaration": false,
     "removeComments": true,
     "noLib": false,
@@ -25,7 +26,12 @@
       "node",
       "jasmine",
       "systemjs"
-    ]
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@sharedmodule": [ "./app/shared/shared.module"],
+      "@sharedmodule/*": [ "./app/shared/*"]
+    }
   },
   "exclude": [
     "node_modules",

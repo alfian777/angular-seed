@@ -1,14 +1,33 @@
-<div class="container">
+<div class="container" style=" margin-top:40px;">
 
 <div *ngIf="!isLoggedIn">
 
-  <form class="form-signin">
+  <form class="form-signin" (ngSubmit)="onSubmit()" #loginForm="ngForm">
     <img src="assets/logo/AKM-Logo.png" class="img-fluid" alt="AKM Logo">
     <h2 class="form-signin-heading text-center">{{headerText}}</h2>
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <input  type="email" 
+            id="inputEmail" 
+            class="form-control" 
+            placeholder="Email address" 
+            [(ngModel)]="userEmail" name="name"
+            #email="ngModel"
+            required autofocus>
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+      Email is required
+    </div>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input  type="password" 
+            id="inputPassword" 
+            class="form-control" 
+            placeholder="Password" 
+            [(ngModel)]="userPass" name="pass"
+            #pass="ngModel"
+            required>
+    <div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">
+      Password is required
+    </div>
+
     <!--
     <div class="checkbox">
       <label>
@@ -17,11 +36,40 @@
     </div>
     -->
     <div class="text-center">
-    <button class="btn btn-lg btn-primary" type="submit" (click)="login()" >Login</button>
-    <button class="btn btn-lg btn-secondary" type="submit" disabled>Register</button>
+    <button class="btn btn-lg btn-primary" type="submit" [disabled]="!loginForm.form.valid" >Login</button>
+    <button class="btn btn-lg btn-secondary" type="resister" (click)="register()" disabled>Register</button>
     </div>
 
   </form>
+
+    <div class="alert alert-info alert-dismissible fade show" role="alert" style="margin-top:30px; padding-top:10px;" >
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <p>{{loginMessage}}</p>
+    <h2>Usage</h2>
+    <p>
+      3 Account were available to evaluate this demo. 
+      one account is the main admin (Mall Manager), 
+      and the other two was lower level admin (Floor Manager).
+      Floor manager has access to their own floor smart parking module.
+      Mall manager has access to all smart parking module.
+    </p>
+    <p>
+      Mall Admin Email: akmmallmanager@gmail.com <br/>
+      Mall Admin Pass : akmtaiwandemo 
+    </p>
+    <p>
+      Floor Admin#1 Email: akmtaiwan1@gmail.com <br/>
+      Floor Admin#1 Pass: akmtaiwandemo 
+    </p>
+    <p>
+      Floor Admin#2 Email: akmtaiwan2@gmail.com <br/>
+      Floor Admin#2 Pass: akmtaiwandemo 
+    </p>
+
+    </div>
+
 </div>
 
 <div *ngIf="isLoggedIn">
@@ -31,6 +79,34 @@
     </div>
 </div>
 
-<p>{{loginMessage}}</p>
-
+  
 </div> <!-- /container -->
+
+<!--
+
+<div *ngIf="!isLoggedIn">
+
+  <form class="form-signin" (ngSubmit)="onSubmit()" #heroForm="ngForm">
+    <img src="assets/logo/AKM-Logo.png" class="img-fluid" alt="AKM Logo">
+    <h2 class="form-signin-heading text-center">{{headerText}}</h2>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input  type="email" 
+            id="inputEmail" 
+            class="form-control" 
+            placeholder="Email address" 
+            [(ngModel)]="userEmail" name="name"
+            #email="ngModel"
+            required autofocus>
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+      Email is required
+    </div>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <div class="text-center">
+    <button class="btn btn-lg btn-primary" type="submit" (click)="login()" >Login</button>
+    <button class="btn btn-lg btn-secondary" type="submit" disabled>Register</button>
+    </div>
+
+  </form>
+</div>
+    -->

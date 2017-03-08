@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 
 // Developed Module
 import { LoginModule } from './login/login.module';
-import { AboutModule } from './about/about.module';
 import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -21,7 +20,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule, 
     HttpModule, 
     LoginModule,
-    AboutModule, 
     HomeModule, 
     AppRoutingModule, 
     SharedModule.forRoot(),

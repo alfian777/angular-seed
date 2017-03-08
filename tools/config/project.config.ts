@@ -23,6 +23,7 @@ export class ProjectConfig extends SeedConfig {
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
       //{src: '@angular/material/core/theming/prebuilt/indigo-pink.css', inject: true},
+      //{src: 'angular2-jwt/angular2-jwt.js', inject: 'libs'},
       {src: 'jquery/dist/jquery.slim.min.js', inject: 'libs'},
       {src: 'tether/dist/js/tether.min.js', inject: 'libs'},
       {src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs'},
@@ -41,6 +42,8 @@ export class ProjectConfig extends SeedConfig {
 
     this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join('node_modules', '@ng-bootstrap', '*', 'package.json'));
 
+    this.SYSTEM_CONFIG_DEV.path['@sharedmodule'] = "src/client/app/shared/shared.module";
+
     let additionalPackages : ExtendPackages[] = 
     [
       /*
@@ -49,6 +52,16 @@ export class ProjectConfig extends SeedConfig {
         path:'node_modules/@angular/material/bundles/material.umd.js',
         packageMeta:{
           main: 'index.js',
+          defaultExtension: 'js'
+        }
+      },
+      */
+      /*
+      {
+        name:'angular2-jwt',
+        path:'node_modules/angular2-jwt/angular2-jwt.js',
+        packageMeta:{
+          main: 'angular2-jwt.js',
           defaultExtension: 'js'
         }
       },

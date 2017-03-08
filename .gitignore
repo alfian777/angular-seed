@@ -20,6 +20,9 @@ documentation
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
+# manual Backup
+src/client-backup/
+
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 

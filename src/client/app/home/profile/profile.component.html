@@ -1,0 +1,18 @@
+<ng-container *ngIf="user">
+<h1>Manage Your Account</h1> 
+<p>This page display your account details</p>
+
+<div class="card mb-3">
+  <div class="card-header">Name</div>
+  <div class="card-block"><h4 class="card-title">{{user.name}}</h4></div>
+</div><div class="card mb-3">
+  <div class="card-header">Email Adress</div>
+  <div class="card-block"><h4 class="card-title">{{user.email}}</h4></div>
+</div><div class="card mb-3">
+  <div class="card-header">Member Since</div>
+  <div class="card-block"><h4 class="card-title">{{user.joinDate | date}}</h4></div>
+</div><div class="card mb-3">
+  <div class="card-header">Activation Status</div>
+  <div class="card-block"><h4 class="card-title">{{user.status}}</h4></div>
+</div>
+</ng-container>
