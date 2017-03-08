@@ -42,7 +42,7 @@ export class ProjectConfig extends SeedConfig {
 
     this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(join('node_modules', '@ng-bootstrap', '*', 'package.json'));
 
-    this.SYSTEM_CONFIG_DEV.path['@sharedmodule'] = "src/client/app/shared/shared.module";
+    //this.SYSTEM_CONFIG_DEV.path['@sharedmodule'] = "src/client/app/shared/shared.module";
 
     let additionalPackages : ExtendPackages[] = 
     [

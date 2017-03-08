@@ -10,7 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SmartComponent } from './smart/smart.component';
 
 // Service
-import { AuthGuard }      from '@sharedmodule/guard/auth-guard.service';
+import { AuthGuard }      from '../shared/guard/auth-guard.service';
 
 @NgModule({
   imports: [
